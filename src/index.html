@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Euro speech-to-text</title>
+
+    <link rel="stylesheet" href="./main.css">
+
+</head>
+
+<body>
+
+    <div id="speak">
+        <p>start</p>
+    </div>
+
+    <div id="recording-tag">
+        <p>recording</p>
+    </div>
+
+    <div id="info">
+        <p>
+            select your language, click to allow microphone access and say something.<br>
+        </p>
+    </div>
+
+    <div id="gradient-mic"></div>
+
+    <select id="language-select" aria-label="Language">
+        <option value="bg-BG">Български</option>
+        <option value="hr-HR">Hrvatski</option>
+        <option value="cs-CZ">Čeština</option>
+        <option value="da-DK">Dansk</option>
+        <option value="nl-NL">Nederlands</option>
+        <option value="en-GB" selected>English</option>
+        <option value="et-EE">Eesti</option>
+        <option value="fi-FI">Suomi</option>
+        <option value="fr-FR">Français</option>
+        <option value="de-DE">Deutsch</option>
+        <option value="el-GR">Ελληνικά</option>
+        <option value="hu-HU">Magyar</option>
+        <option value="it-IT">Italiano</option>
+        <option value="ga-IE">Gaeilge</option>
+        <option value="lv-LV">Latviešu</option>
+        <option value="lt-LT">Lietuvių</option>
+        <option value="mt-MT">Malti</option>
+        <option value="pl-PL">Polski</option>
+        <option value="pt-PT">Português</option>
+        <option value="ro-RO">Română</option>
+        <option value="sk-SK">Slovenčina</option>
+        <option value="sl-SI">Slovenščina</option>
+        <option value="es-ES">Español</option>
+        <option value="sv-SE">Svenska</option>
+    </select>
+
+    <div class="loader">
+        <img src="./Stars_of_the_European_Union.svg" alt="loader">
+    </div>
+
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

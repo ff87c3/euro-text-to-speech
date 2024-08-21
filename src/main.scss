@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --colorMain: yellow;
+  --backgroundColor: blue;
+  --yellow: yellow;
+  --blue: rgb(0, 0, 255);
+
+  --originalGradient: radial-gradient(
+    circle,
+    var(--colorMain) 0%,
+    rgb(11, 5, 95) 15%,
+    rgb(25, 0, 255) 100%
+  );
+
+  --originalGradient: radial-gradient(
+    circle,
+    var(--blue) 0%,
+    var(--yellow) 15%,
+    var(--blue) 100%
+  );
+
+  --lightGradient: radial-gradient(
+    circle,
+    rgba(145, 167, 255, 1) 0%,
+    rgb(119, 119, 119) 15%,
+    rgba(131, 131, 131, 1) 100%
+  );
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background-color: var(--backgroundColor);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--yellow);
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+canvas {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#gradient-mic {
+  pointer-events: none;
+  z-index: 1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--originalGradient);
+  background-position: center;
+  opacity: 1;
+}
+
+#speak {
+  cursor: pointer;
+  position: fixed;
+  z-index: 3;
+  transition: all 0.25s ease-in-out;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 1.5vw;
+    @media screen and (max-width: 768px) {
+      font-size: 3vw;
+    }
+  }
+}
+
+#recording-tag {
+  pointer-events: none;
+  cursor: pointer;
+  position: fixed;
+  z-index: 3;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 1.5vw;
+    @media screen and (max-width: 768px) {
+      font-size: 3vw;
+    }
+  }
+}
+
+#info {
+  position: fixed;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1vw;
+  color: var(--yellow);
+  z-index: 3;
+  width: 100%;
+
+  p {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2vw;
+  }
+}
+
+#language-select {
+  z-index: 4;
+  position: fixed;
+  top: 1%;
+  right: 1%;
+}
+
+select {
+  font-family: "Roboto", sans-serif;
+  background: transparent;
+  color: var(--yellow);
+  font-size: 1vw;
+  border: none;
+  opacity: 1;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3vw;
+  }
+}
+
+.grab-cursor {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flicker {
+  -webkit-animation: flicker 3s infinite alternate;
+  animation: flicker 3s infinite alternate;
+}
+
+@-webkit-keyframes flicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.loader {
+  background-color: var(--blue);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 99999;
+  transition-timing-function: ease-in-out;
+}
+
+.loader img {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 65vw;
+  max-height: 65vh;
+  filter: invert(76%) sepia(93%) saturate(600%) hue-rotate(1deg)
+    brightness(100%) contrast(100%);
+
+  @media screen and (max-width: 768px) {
+    max-width: 50vw;
+    max-height: 50vh;
+  }
+}
+
+.loader.hidden,
+.loaderentrance.hidden {
+  -webkit-animation: fadeOut 2s;
+  animation: fadeOut 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@-webkit-keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flicker-loader {
+  -webkit-animation: flickerAnimation ease-in-out 3s infinite;
+  animation: flickerAnimation ease-in-out 3s infinite;
+}
